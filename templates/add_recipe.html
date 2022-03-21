@@ -1,0 +1,32 @@
+<doctype html>
+    <body>
+        <br>
+        <h3>You can add your favorite recipe to our collection!</h3>
+        <p>Please fill out the required fields:</p>
+        <br>
+<form action="/" method="POST">
+    {{ template_form.hidden_tag() }}
+    <p class="center">
+
+        {{ template_form.recipe_name.label }}
+        {{ template_form.recipe_name() }}
+    </p>
+    <p class="center">
+        {{ template_form.ingredients.label }}
+        {{ template_form.ingredients() }}
+    </p>
+    <p class="center">
+        {{ template_form.instructions.label }}
+        {{ template_form.instructions() }}
+    </p>
+    <p class="center">{{ template_form.submit() }}</p>
+
+
+    {% for recipe in new_recipe %}
+
+    <p class="add">{{ recipe.recipe_name }}<br>
+        {{ recipe.ingredients }}<br>
+        {{ recipe.instructions }}<br>
+    </p>
+{% endfor %}
+
